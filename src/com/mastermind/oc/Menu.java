@@ -4,15 +4,33 @@ import java.util.Scanner;
 
 public class Menu {
 
+	protected static Parametre parametre = new Parametre(4,4,8);
+	public static char ModeChoisi;
+	public static Boolean marqueurMode = false;
+	
 	public static void main(String[] args) {
 
 		int SELECTION;
 		char Reponse;
 
 		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Choisissez un mode : \n"
+				+"Dévellopeur(D) / Utilisateur(U)");
+				ModeChoisi = sc.next().charAt(0);
 
+				if (ModeChoisi != 'D' && ModeChoisi != 'U') {
+				System.out
+						.println("Reponse non valide. Le programme " +
+								"se lance en mode Utilisateur");
+				};
+				
+				if (ModeChoisi == 'D'){
+					marqueurMode = true;
+				}			
+		
 		do {
-
+			
 			System.out.println();
 			System.out
 					.println("*********PROJET 3 - OPENCLASSROOM*********\n"
@@ -25,8 +43,9 @@ public class Menu {
 							+ "Quitter le programme (7)\n"
 							+ "Taper le chiffre entre parenthése pour faire un choix :");
 
+			
 			SELECTION = sc.nextInt();
-
+			
 			
 			if (SELECTION == 1) {
 				do {
@@ -138,8 +157,7 @@ public class Menu {
 					} while (Reponse != 'O' && Reponse != 'N');
 
 				} while (Reponse != 'N');
-			}
-			
+			}	
 			
 		} while (SELECTION != 7);
 

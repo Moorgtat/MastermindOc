@@ -3,7 +3,7 @@ package com.mastermind.oc;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Mastermind {
+public class Mastermind extends Menu{
 	
 	private static int BIEN_PLACE;
 	private static int PRESENT;
@@ -17,34 +17,40 @@ public class Mastermind {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("***********MASTERMIND MODE ATTAQUE***********\n"
-		+"Trouve la bonne combinaison de " + Parametre.getMAX_CHIFF()+ 
-		" chiffres entre 0 et " + Parametre.getMAX_CHIFF() + ".\n"
-		+"Attention, tu n'as droit qu'à " + Parametre.getMAX_ESSAIS() + " essais");
+		+"Trouve la bonne combinaison de " + parametre.getMAX_CHIFF()+ 
+		" chiffres entre 0 et " + parametre.getMAX_CHIFF() + ".\n"
+		+"Attention, tu n'as droit qu'à " + parametre.getMAX_ESSAIS() + " essais.");
 
 		int count = 0;
 		
-		int[] CombiOrdi = new int[Parametre.getNUM_TOTAL_CHIFF()];
+		int[] CombiOrdi = new int[parametre.getNUM_TOTAL_CHIFF()];
 
 		Random r = new Random();
 
-		for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
-			CombiOrdi[i] = r.nextInt(Parametre.getMAX_CHIFF() + 1);
+		for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
+			CombiOrdi[i] = r.nextInt(parametre.getMAX_CHIFF() + 1);
 		}
-
-		int[] CombiJoueur = new int[Parametre.getNUM_TOTAL_CHIFF()];
+		
+		int[] CombiJoueur = new int[parametre.getNUM_TOTAL_CHIFF()];
 
 		boolean victoire = false;
 
 		do {
-			System.out.println("\nEssai n° " + (count + 1) + "/" + Parametre.getMAX_ESSAIS()
+		    if(marqueurMode){
+		    System.out.println();
+			System.out.println ("Mode Devellopeur - Solution : "
+				+ CombiOrdi[0] + " " + CombiOrdi[1] + " " + CombiOrdi[2]
+				+ " " + CombiOrdi[3] + " ");
+		    }
+			System.out.println("\nEssai n° " + (count + 1) + "/" + parametre.getMAX_ESSAIS()
 					+ " :");
 			int nombreSaisi = sc.nextInt();
 
-			for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++)
+			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++)
 				CombiJoueur[i] = (int) (nombreSaisi / (Math.pow(10,
-						(Parametre.getNUM_TOTAL_CHIFF() - i - 1)))) % 10;
+						(parametre.getNUM_TOTAL_CHIFF() - i - 1)))) % 10;
 
-			for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++)
+			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++)
 				System.out.print(CombiJoueur[i] + " ");
 
 			System.out.println();
@@ -52,10 +58,10 @@ public class Mastermind {
 			BIEN_PLACE = 0;
 			PRESENT = 0;       
             
-			boolean[] BIEN_PLACE_Test = new boolean[Parametre.getNUM_TOTAL_CHIFF()];
-			boolean[] PRESENT_Test = new boolean[Parametre.getNUM_TOTAL_CHIFF()];
+			boolean[] BIEN_PLACE_Test = new boolean[parametre.getNUM_TOTAL_CHIFF()];
+			boolean[] PRESENT_Test = new boolean[parametre.getNUM_TOTAL_CHIFF()];
 
-			for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
+			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
 
 				if (CombiJoueur[i] == CombiOrdi[i]) {
 					BIEN_PLACE++;
@@ -64,14 +70,14 @@ public class Mastermind {
 			        	}
 			}
 			        
-			    if (BIEN_PLACE == Parametre.getNUM_TOTAL_CHIFF()) {
+			    if (BIEN_PLACE == parametre.getNUM_TOTAL_CHIFF()) {
 				victoire = true;
 			}
 
 			else {
-				for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
-					for (int j = 0; j < Parametre.getNUM_TOTAL_CHIFF(); j++) {
-						if (CombiJoueur[i] == CombiOrdi[j] 
+				for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
+					for (int j = 0; j < parametre.getNUM_TOTAL_CHIFF(); j++) {
+						if (CombiJoueur[i] == CombiOrdi[j]
 								&& !BIEN_PLACE_Test[i] && !PRESENT_Test[j] ) {
 							PRESENT++;
 							BIEN_PLACE_Test[i] = true;
@@ -89,14 +95,14 @@ public class Mastermind {
 
 			count++;
 
-		} while (!victoire && count < Parametre.getMAX_ESSAIS());
+		} while (!victoire && count < parametre.getMAX_ESSAIS());
 		if (victoire) {
 			System.out.println();
 			System.out.println("Bravo tu as gagné en " + count + " coups!");
 
 		} else {
 			System.out.println();
-			System.out.println("Tu as épuisé tes " + Parametre.getMAX_ESSAIS()
+			System.out.println("Tu as épuisé tes " + parametre.getMAX_ESSAIS()
 					+ " essais, l'ordinateur a gagné! La solution était "
 					+ CombiOrdi[0] + " " + CombiOrdi[1] + " " + CombiOrdi[2]
 					+ " " + CombiOrdi[3] + " !");
@@ -110,45 +116,44 @@ public class Mastermind {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("***********MASTERMIND MODE DEFENSE***********\n"
-		  +"Entre une combinaison de " + Parametre.getNUM_TOTAL_CHIFF()
-		  + " chiffres entre 0 et " + Parametre.getMAX_CHIFF() + ".\n"
-		  +"L'ordinateur aura " + Parametre.getMAX_ESSAIS()+ " essais " 
+		  +"Entre une combinaison de " + parametre.getNUM_TOTAL_CHIFF()
+		  + " chiffres entre 0 et " + parametre.getMAX_CHIFF() + ".\n"
+		  +"L'ordinateur aura " + parametre.getMAX_ESSAIS()+ " essais " 
 		  +"pour trouver ta combinaison et te battre.");
 		System.out.println();
 		System.out.println("Entre ta combinaison secrète: ");
 
 		int count = 0;
 
-		int[] TirageJoueur = new int[Parametre.getNUM_TOTAL_CHIFF()];
+		int[] CombiJoueur = new int[parametre.getNUM_TOTAL_CHIFF()];
 
-		boolean[] numCorrespondant = new boolean[Parametre.getNUM_TOTAL_CHIFF()];
+		boolean[] numCorrespondantOrdinateur = new boolean[parametre.getNUM_TOTAL_CHIFF()];
 
 		int nombresSaisi = sc.nextInt();
 
-		for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
-			TirageJoueur[i] = (int) (nombresSaisi / (Math.pow(10,
-					(Parametre.getNUM_TOTAL_CHIFF() - i - 1)))) % 10;
-			numCorrespondant[i] = false;
+		for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
+			CombiJoueur[i] = (int) (nombresSaisi / (Math.pow(10,
+					(parametre.getNUM_TOTAL_CHIFF() - i - 1)))) % 10;
 		}
 
 		Random r = new Random();
 
-		int[] RechercheOrdi = new int[Parametre.getNUM_TOTAL_CHIFF()];
+		int[] RechercheOrdi = new int[parametre.getNUM_TOTAL_CHIFF()];
 
 		boolean victoire = false;
 
 		do {
-			System.out.println("\nEssai n° " + (count + 1) + "/" + Parametre.getMAX_ESSAIS()
+			System.out.println("\nEssai n° " + (count + 1) + "/" + parametre.getMAX_ESSAIS()
 					+ " :");
 
-			for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
-				if (!numCorrespondant[i]) {
-					RechercheOrdi[i] = r.nextInt(Parametre.getMAX_CHIFF() + 1);
+			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
+				if (!numCorrespondantOrdinateur[i]) {
+					RechercheOrdi[i] = r.nextInt(parametre.getMAX_CHIFF() + 1);
 				}
 
 			}
 
-			for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
+			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
 				System.out.print(RechercheOrdi[i] + " ");
 			}
 
@@ -156,25 +161,25 @@ public class Mastermind {
 			BIEN_PLACE = 0;
 			PRESENT = 0;
 
-			boolean[] BIEN_PLACE_Test = new boolean[Parametre.getNUM_TOTAL_CHIFF()];
-			boolean[] PRESENT_Test = new boolean[Parametre.getNUM_TOTAL_CHIFF()];
+			boolean[] BIEN_PLACE_Test = new boolean[parametre.getNUM_TOTAL_CHIFF()];
+			boolean[] PRESENT_Test = new boolean[parametre.getNUM_TOTAL_CHIFF()];
 
-			for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
-				if (TirageJoueur[i] == RechercheOrdi[i]) {
+			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
+				if (CombiJoueur[i] == RechercheOrdi[i]) {
 					BIEN_PLACE++;
 					BIEN_PLACE_Test[i] = true;
 					PRESENT_Test[i] = true;
-					numCorrespondant[i] = true;
+					numCorrespondantOrdinateur[i] = true;
 				}
 			}
-			if (BIEN_PLACE == Parametre.getNUM_TOTAL_CHIFF()) {
+			if (BIEN_PLACE == parametre.getNUM_TOTAL_CHIFF()) {
 				victoire = true;
 			}
 
 			else {
-				for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
-					for (int j = 0; j < Parametre.getNUM_TOTAL_CHIFF(); j++) {
-						if (TirageJoueur[i] == RechercheOrdi[j]
+				for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
+					for (int j = 0; j < parametre.getNUM_TOTAL_CHIFF(); j++) {
+						if (CombiJoueur[i] == RechercheOrdi[j]
 								&& !BIEN_PLACE_Test[i] && !PRESENT_Test[j]) {
 							PRESENT++;
 							BIEN_PLACE_Test[i] = true;
@@ -192,73 +197,82 @@ public class Mastermind {
 
 			count++;
 
-		} while (!victoire && count < Parametre.getMAX_ESSAIS());
+		} while (!victoire && count < parametre.getMAX_ESSAIS());
 		if (victoire) {
 			System.out.println();
 			System.out.println("L'ordinateur a gagné en " + count
 					+ " coups, tu as perdu!");
 		} else {
 			System.out.println();
-			System.out.println("Bravo, l'ordinateur a epuisé ses " + Parametre.getMAX_ESSAIS()
+			System.out.println("Bravo, l'ordinateur a epuisé ses " + parametre.getMAX_ESSAIS()
 					+ " essais, c'est gagné!");
 		}
 	}
+	
 	
 	static void Duel() {int count = 0;
 	
 	Scanner sc = new Scanner(System.in);
 	
 	System.out.println("***********MASTERMIND MODE DUEL***********\n"
-	+"Trouve la bonne combinaison de " +Parametre.getNUM_TOTAL_CHIFF()+ " " 
-	+"chiffres entre 0 et "+Parametre.getMAX_CHIFF() +"\n" 
+	+"Trouve la bonne combinaison de " +parametre.getNUM_TOTAL_CHIFF()+ " " 
+	+"chiffres entre 0 et "+parametre.getMAX_CHIFF() +"\n" 
 	+"avant l'ordinateur! Commence par entrer ta combinaison \n"
 	+"secrète puis trouve celle de l'ordinateur.\n"
-	+"Attention, tu n'as droit qu'à " +Parametre.getMAX_ESSAIS()+ " essais.");
+	+"Attention, tu n'as droit qu'à " +parametre.getMAX_ESSAIS()+ " essais.");
 	System.out.println();
 	System.out.println("Entre ta combinaison secrète: ");
 
-	int[] CombiOrdi = new int[Parametre.getNUM_TOTAL_CHIFF()];
+	int[] CombiOrdi = new int[parametre.getNUM_TOTAL_CHIFF()];
 	
     Random r = new Random();
     
-	for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
-		CombiOrdi[i] = r.nextInt(Parametre.getMAX_CHIFF() + 1);
+	for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
+		CombiOrdi[i] = r.nextInt(parametre.getMAX_CHIFF() + 1);
 	}
 
-	boolean[] numCorrespondantOrdinateur = new boolean[Parametre.getNUM_TOTAL_CHIFF()];
+	boolean[] numCorrespondantOrdinateur = new boolean[parametre.getNUM_TOTAL_CHIFF()];
 
-	int[] CombiJoueur = new int[Parametre.getNUM_TOTAL_CHIFF()];
+	int[] CombiJoueur = new int[parametre.getNUM_TOTAL_CHIFF()];
 
 	int nombresSaisi = sc.nextInt();
 
-	for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
+	for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
 		CombiJoueur[i] = (int) (nombresSaisi / (Math.pow(10,
-				(Parametre.getNUM_TOTAL_CHIFF() - i - 1)))) % 10;
+				(parametre.getNUM_TOTAL_CHIFF() - i - 1)))) % 10;
 	}
 
+	int[] RechercheOrdi = new int[parametre.getNUM_TOTAL_CHIFF()];
+	
 	boolean victoireJoueur = false;
 	boolean victoireOrdinateur = false;
 	
 	do {
+	    if(marqueurMode){
+	      System.out.println();
+		  System.out.println ("Mode Devellopeur - Solution : "
+			+ CombiOrdi[0] + " " + CombiOrdi[1] + " " + CombiOrdi[2]
+			+ " " + CombiOrdi[3] + " ");
+	     }
 		System.out.println("\nRecherche Joueur essai n° " + (count + 1)
-				+ "/" + Parametre.getMAX_ESSAIS() + " :");
+				+ "/" + parametre.getMAX_ESSAIS() + " :");
 		
         int nombreSaisi2 = sc.nextInt();
         
-		int[] RechercheJoueur = new int[Parametre.getNUM_TOTAL_CHIFF()];	
+		int[] RechercheJoueur = new int[parametre.getNUM_TOTAL_CHIFF()];	
 		
-		for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
+		for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
 			RechercheJoueur[i] = (int) (nombreSaisi2 / (Math.pow(10,
-					(Parametre.getNUM_TOTAL_CHIFF() - i - 1)))) % 10;
+					(parametre.getNUM_TOTAL_CHIFF() - i - 1)))) % 10;
 		}
 		
 		BIEN_PLACE_JOUEUR = 0;
 		PRESENT_JOUEUR = 0;       
         
-		boolean[] BIEN_PLACE_J = new boolean[Parametre.getNUM_TOTAL_CHIFF()];
-		boolean[] PRESENT_J = new boolean[Parametre.getNUM_TOTAL_CHIFF()];
+		boolean[] BIEN_PLACE_J = new boolean[parametre.getNUM_TOTAL_CHIFF()];
+		boolean[] PRESENT_J = new boolean[parametre.getNUM_TOTAL_CHIFF()];
 
-		for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
+		for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
 
 			if (RechercheJoueur[i] == CombiOrdi[i]) {
 				BIEN_PLACE_JOUEUR++;
@@ -267,13 +281,13 @@ public class Mastermind {
 		        	}
 		}
 		        
-		    if (BIEN_PLACE_JOUEUR == Parametre.getNUM_TOTAL_CHIFF()) {
+		    if (BIEN_PLACE_JOUEUR == parametre.getNUM_TOTAL_CHIFF()) {
 			victoireJoueur = true;
 		}
 
 		else {
-			for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
-				for (int j = 0; j < Parametre.getNUM_TOTAL_CHIFF(); j++) {
+			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
+				for (int j = 0; j < parametre.getNUM_TOTAL_CHIFF(); j++) {
 					if (RechercheJoueur[i] == CombiOrdi[j] 
 							&& !BIEN_PLACE_J[i] && !PRESENT_J[j] ) {
 						PRESENT_JOUEUR++;
@@ -293,17 +307,15 @@ public class Mastermind {
 		System.out.println();
 		
 		System.out.println("Recherche Ordinateur essai n° " + (count + 1)
-				+ "/" + Parametre.getMAX_ESSAIS() + " :");
+				+ "/" + parametre.getMAX_ESSAIS() + " :");
 
-		int[] RechercheOrdi = new int[Parametre.getNUM_TOTAL_CHIFF()];
-
-		for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
+		for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
 			if (!numCorrespondantOrdinateur[i]) {
-				RechercheOrdi[i] = r.nextInt(Parametre.getMAX_CHIFF() + 1);
+				RechercheOrdi[i] = r.nextInt(parametre.getMAX_CHIFF() + 1);
 			}
 		}
 
-		for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
+		for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
 			System.out.print(RechercheOrdi[i] + " ");
 		}
 
@@ -312,10 +324,10 @@ public class Mastermind {
 		BIEN_PLACE_ORDINATEUR = 0;
 		PRESENT_ORDINATEUR = 0;       
         
-		boolean[] BIEN_PLACE_O = new boolean[Parametre.getNUM_TOTAL_CHIFF()];
-		boolean[] PRESENT_O = new boolean[Parametre.getNUM_TOTAL_CHIFF()];
+		boolean[] BIEN_PLACE_O = new boolean[parametre.getNUM_TOTAL_CHIFF()];
+		boolean[] PRESENT_O = new boolean[parametre.getNUM_TOTAL_CHIFF()];
 
-		for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
+		for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
 			if (RechercheOrdi[i] == CombiJoueur[i]) {
 				BIEN_PLACE_ORDINATEUR++;
 				BIEN_PLACE_O[i] = true;
@@ -323,13 +335,13 @@ public class Mastermind {
 				numCorrespondantOrdinateur[i] = true;
 		        	}
 		}
-		if (BIEN_PLACE_ORDINATEUR == Parametre.getNUM_TOTAL_CHIFF()) {
+		if (BIEN_PLACE_ORDINATEUR == parametre.getNUM_TOTAL_CHIFF()) {
 			victoireOrdinateur = true;
 		}
 
 		else {
-			for (int i = 0; i < Parametre.getNUM_TOTAL_CHIFF(); i++) {
-				for (int j = 0; j < Parametre.getNUM_TOTAL_CHIFF(); j++) {
+			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
+				for (int j = 0; j < parametre.getNUM_TOTAL_CHIFF(); j++) {
 					if (RechercheOrdi[i] == CombiJoueur[j]
 							&& !BIEN_PLACE_O[i] && !PRESENT_O[j]) {
 						PRESENT_ORDINATEUR++;
@@ -349,7 +361,7 @@ public class Mastermind {
 
 		count++;
 
-	} while (!victoireJoueur && !victoireOrdinateur && (count < Parametre.getMAX_ESSAIS()));
+	} while (!victoireJoueur && !victoireOrdinateur && (count < parametre.getMAX_ESSAIS()));
 
 	if (victoireJoueur && victoireOrdinateur) {
 		System.out.println();
@@ -364,18 +376,18 @@ public class Mastermind {
 	}else if (victoireOrdinateur) {
 		System.out.println();
 		System.out.println("L'ordinateur a gagné en " + count
-				+ " coups! Vous avez perdu! La solution de l'ordinateur était "
-				+ CombiOrdi[0] + " " + CombiOrdi[1] + " " + CombiOrdi[2]
-				+ " " + CombiOrdi[3] + " !");
+				+ " coups! Vous avez perdu! La combinaison de l'ordinateur était "
+					+ CombiOrdi[0] + " " + CombiOrdi[1] + " " + CombiOrdi[2]
+					+ " " + CombiOrdi[3] + " !");
 		
 	}else {
 		System.out.println();
 		System.out
 				.println("L'ordinateur et le joueur ont épuisé leurs "
-						+ Parametre.getMAX_ESSAIS()
-						+ " essais. Personne ne gagne! La solution de l'ordinateur était "
-				+ CombiOrdi[0] + " " + CombiOrdi[1] + " " + CombiOrdi[2]
-				+ " " + CombiOrdi[3] + " !");
+						+ parametre.getMAX_ESSAIS()
+						+ " essais. Personne ne gagne! La combinaison de l'ordinateur était "
+					+ CombiOrdi[0] + " " + CombiOrdi[1] + " " + CombiOrdi[2]
+					+ " " + CombiOrdi[3] + " !");
 	  }
    }
 }
