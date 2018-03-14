@@ -4,7 +4,7 @@ public class Parametre {
 	
 	private int NUM_TOTAL_CHIFF;
 	private int MAX_CHIFF;
-	private  int MAX_ESSAIS;
+	private int MAX_ESSAIS;
 	
 	public Parametre(){
 		

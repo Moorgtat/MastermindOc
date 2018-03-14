@@ -37,9 +37,12 @@ public class Recherche extends Menu{
 		do {
 			if(marqueurMode){
 				System.out.println();
+				String str = new String();
+				for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++){
+					str += CombiOrdi[i] + " " ;
+				}
 				System.out.println ("Mode Devellopeur - Solution : "
-					+ CombiOrdi[0] + " " + CombiOrdi[1] + " " + CombiOrdi[2]
-					+ " " + CombiOrdi[3] + " ");
+					+ str);
 			}
 			
 			System.out.println("\nEssai n° " + (count + 1) + "/" + parametre.getMAX_ESSAIS()
@@ -91,10 +94,13 @@ public class Recherche extends Menu{
 		
 		else {
 			System.out.println();
-			System.out.println("Tu as épuisé tes " + parametre.getMAX_ESSAIS()
-					+ " essais, l'ordinateur a gagné! La solution était "
-					+ CombiOrdi[0] + " " + CombiOrdi[1] + " " + CombiOrdi[2]
-					+ " " + CombiOrdi[3] + " !");
+			String str = new String();
+			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++){
+				str += CombiOrdi[i] + " " ;
+			}
+			System.out.println ("Tu as épuisé tes " + parametre.getMAX_ESSAIS()
+			+ " essais, l'ordinateur a gagné! La solution était "
+			+ str);
 		}
 	}
 	
@@ -236,9 +242,12 @@ public class Recherche extends Menu{
 		do {
 			if(marqueurMode){
 				System.out.println();
+				String str = new String();
+				for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++){
+					str += CombiOrdi[i] + " " ;
+				}
 				System.out.println ("Mode Devellopeur - Solution : "
-					+ CombiOrdi[0] + " " + CombiOrdi[1] + " " + CombiOrdi[2]
-					+ " " + CombiOrdi[3] + " ");
+					+ str);
 			}
 			
 			System.out.println("\nRecherche Joueur essai n° " + (count + 1)
@@ -342,20 +351,24 @@ public class Recherche extends Menu{
 		
 		else if (victoireOrdinateur) {
 			System.out.println();
+			String str = new String();
+			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++){
+				str += CombiOrdi[i] + " " ;
+			}
 			System.out.println("L'ordinateur a gagné en " + count
-					+ " coups! Vous avez perdu! La combinaison de l'ordinateur était "
-					+ CombiOrdi[0] + " " + CombiOrdi[1] + " " + CombiOrdi[2]
-					+ " " + CombiOrdi[3] + " !");		
+					+ " coups! Vous avez perdu! La solution était "
+					+str);		
 		    }
 		
 		else {
 			System.out.println();
-			System.out
-					.println("L'ordinateur et le joueur ont épuisé leurs "
-							+ parametre.getMAX_ESSAIS()
-							+ " essais. Personne ne gagne! La combinaison de l'ordinateur était "
-					+ CombiOrdi[0] + " " + CombiOrdi[1] + " " + CombiOrdi[2]
-					+ " " + CombiOrdi[3] + " !");
+			String str = new String();
+			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++){
+				str += CombiOrdi[i] + " " ;
+			}
+			System.out.println ("L'ordinateur et le joueur ont épuisé leur " + parametre.getMAX_ESSAIS()
+					+ " essais ! La combinaison de l'ordinateur était "
+				+ str);
 	     	}
     	}
     }

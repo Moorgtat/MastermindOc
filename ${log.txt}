@@ -1,0 +1,2 @@
+2018-03-14 16:13:00.125 [main] INFO  logging.log4j.LoggerTest - What a beatiful day.
+2018-03-14 16:13:05.089 [main] WARN  logging.log4j.LoggerTest - Ce n'est pas un âge!

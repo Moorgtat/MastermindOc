@@ -1,0 +1,13 @@
+2018-03-14 18:39:23.024 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-14 18:39:27.383 [main] WARN  com.mastermind.oc.Menu -  Saisi non valide
+2018-03-14 18:39:27.387 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-14 18:40:44.342 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-14 18:40:49.496 [main] WARN  com.mastermind.oc.Menu -  Saisi non valide
+2018-03-14 18:40:49.499 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-14 18:40:52.840 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-14 18:40:56.028 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-14 18:41:32.199 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-14 18:41:47.069 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-14 18:42:28.272 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-14 18:42:44.020 [main] WARN  com.mastermind.oc.Menu -  Saisi non valide
+2018-03-14 18:42:44.026 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
