@@ -12,7 +12,7 @@ public class Menu {
 	private static final Logger logger = LogManager.getLogger(Menu.class);
 	protected static ChargerConfiguration cc = new ChargerConfiguration();
 	protected static Parametre parametre = new Parametre(cc.getPropNumTotal(),cc.getPropMaxChiff(),cc.getPropMaxEssai());
-//	public static char ModeChoisi;
+
 	public static Boolean marqueurMode = false;
 	
 	  public static void main(String[] args) {
@@ -24,35 +24,18 @@ public class Menu {
 		
 		System.out.println();
 		
-		Scanner sc = new Scanner(System.in);
-		
-//		System.out.println("Choisissez un mode : \n"
-//				+"Dévellopeur(D) / Utilisateur(U)");
-//				ModeChoisi = sc.next().charAt(0);
-//
-//				if (ModeChoisi != 'D' && ModeChoisi != 'U') {
-//				System.out
-//						.println("Reponse non valide. Le programme " +
-//								"se lance en mode Utilisateur.");
-//				};
-//				
-//				if (ModeChoisi == 'D'){
-//					marqueurMode = true;
-//				}
-		
-	try{
-	
-		if (args[0] == "D"){
-			marqueurMode = true;
-		}else
-			marqueurMode = false;
-	   
-	   }catch (ArrayIndexOutOfBoundsException e) {
-		   
-			logger.warn("Mode de lancement non reconnu. Mode Utilisateur lancé par défaut.");
-			System.out.println();
-		}
-	
+		Scanner sc = new Scanner(System.in);		
+			
+			if (args.length > 0) {
+				if (args[0].equals("D")) {
+					marqueurMode = true;
+					logger.info("            *Mode Développeur*");
+				}
+			} else {
+				    marqueurMode = false;
+			    	logger.info("                *Mode Utilisateur*");
+			}	
+
   try {
 	
 		do {
@@ -188,7 +171,7 @@ public class Menu {
 		
 		}catch (InputMismatchException e) {
 			
-			logger.warn(" Saisi non valide");
+			logger.warn(" Saisi non valide ");
 		}
   
   logger.info("Fermeture du programme Mastermind OC");
