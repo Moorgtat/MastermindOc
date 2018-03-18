@@ -79,18 +79,20 @@ public class Mastermind extends Menu{
 				victoire = true;
 			}
 
-			else {
-				for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
-					for (int j = 0; j < parametre.getNUM_TOTAL_CHIFF(); j++) {
-						if (CombiJoueur[i] == CombiOrdi[j]
-								&& !BIEN_PLACE_Test[i] && !PRESENT_Test[j] ) {
-							PRESENT++;
-							BIEN_PLACE_Test[i] = true;
-							PRESENT_Test[i] = true;
+			    else {
+					for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
+						if (!PRESENT_Test[i]) {
+							for (int j = 0; j < parametre.getNUM_TOTAL_CHIFF(); j++) {
+								if (!BIEN_PLACE_Test[j]) {
+									if (CombiJoueur[i] == CombiOrdi[j]) {
+										PRESENT++;
+										BIEN_PLACE_Test[j] = true;
+									}
+								}
+							}
 						}
 					}
 				}
-			}
 
 			if (BIEN_PLACE >= 0)
 				System.out.println(+BIEN_PLACE + " de bien placé");
@@ -295,18 +297,20 @@ public class Mastermind extends Menu{
 			victoireJoueur = true;
 		}
 
-		else {
-			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
-				for (int j = 0; j < parametre.getNUM_TOTAL_CHIFF(); j++) {
-					if (RechercheJoueur[i] == CombiOrdi[j] 
-							&& !BIEN_PLACE_J[i] && !PRESENT_J[j] ) {
-						PRESENT_JOUEUR++;
-						BIEN_PLACE_J[i] = true;
-						PRESENT_J[i] = true;
+		    else {
+						for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
+							if (!PRESENT_J[i]) {
+								for (int j = 0; j < parametre.getNUM_TOTAL_CHIFF(); j++) {
+									if (!BIEN_PLACE_J[j]) {
+										if (RechercheJoueur[i] == CombiOrdi[j]) {
+											PRESENT_JOUEUR++;
+											BIEN_PLACE_J[j] = true;
+										}
+									}
+								}
+							}
+						}
 					}
-				}
-			}
-		}
 
 		if (BIEN_PLACE_JOUEUR >= 0)
 			System.out.println(+BIEN_PLACE_JOUEUR + " de bien placé");
@@ -349,18 +353,20 @@ public class Mastermind extends Menu{
 			victoireOrdinateur = true;
 		}
 
-		else {
-			for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
-				for (int j = 0; j < parametre.getNUM_TOTAL_CHIFF(); j++) {
-					if (RechercheOrdi[i] == CombiJoueur[j]
-							&& !BIEN_PLACE_O[i] && !PRESENT_O[j]) {
-						PRESENT_ORDINATEUR++;
-						BIEN_PLACE_O[i] = true;
-						PRESENT_O[i] = true;
+	    else {
+					for (int i = 0; i < parametre.getNUM_TOTAL_CHIFF(); i++) {
+						if (!PRESENT_O[i]) {
+							for (int j = 0; j < parametre.getNUM_TOTAL_CHIFF(); j++) {
+								if (!BIEN_PLACE_O[j]) {
+									if (RechercheOrdi[i] == CombiJoueur[j]) {
+										PRESENT_ORDINATEUR++;
+										BIEN_PLACE_O[j] = true;
+									}
+								}
+							}
+						}
 					}
 				}
-			}
-		}
 
 		if (BIEN_PLACE_ORDINATEUR >= 0)
 			System.out.println(+BIEN_PLACE_ORDINATEUR + " de bien placé");

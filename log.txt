@@ -107,3 +107,55 @@
 2018-03-15 20:43:32.544 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
 2018-03-15 21:18:52.712 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
 2018-03-15 21:18:52.716 [main] INFO  com.mastermind.oc.Menu -                 *Mode Utilisateur*
+2018-03-16 11:53:17.076 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-16 11:53:17.091 [main] INFO  com.mastermind.oc.Menu -                 *Mode Utilisateur*
+2018-03-16 11:53:23.036 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-16 11:54:23.553 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-16 11:54:23.553 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-16 11:54:29.303 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-16 11:54:56.614 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-16 11:54:56.630 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-16 11:55:00.493 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-16 11:55:20.002 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-16 11:55:20.002 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-16 11:55:23.723 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-16 11:55:38.546 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-16 11:55:38.546 [main] INFO  com.mastermind.oc.Menu -             *Mode Développeur*
+2018-03-16 11:55:42.300 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-16 11:55:52.267 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-16 11:56:30.040 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-16 11:56:43.638 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-16 11:56:51.170 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-16 11:57:51.645 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-16 11:57:51.661 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-16 11:58:08.183 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-16 11:58:08.183 [main] INFO  com.mastermind.oc.Menu -             *Mode Développeur*
+2018-03-16 11:58:19.908 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-16 11:59:02.739 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-16 11:59:02.755 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-16 11:59:06.990 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-16 11:59:27.580 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-16 11:59:27.580 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-16 11:59:31.252 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-17 21:50:54.801 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-17 21:50:54.816 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-17 21:51:07.338 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-17 21:51:07.354 [main] INFO  com.mastermind.oc.Menu -             *Mode Développeur*
+2018-03-17 21:51:26.024 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-17 21:51:36.007 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-17 21:51:36.007 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-17 21:51:57.024 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-17 21:53:25.012 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-17 21:53:25.028 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-17 21:53:30.617 [main] WARN  com.mastermind.oc.Menu -  Saisi non valide 
+2018-03-17 21:53:30.622 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-17 21:54:02.348 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-17 21:54:02.348 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-18 09:29:17.126 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-18 09:29:17.173 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-18 09:30:33.717 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC
+2018-03-18 09:34:12.937 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-18 09:34:12.937 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-18 09:37:24.135 [main] INFO  com.mastermind.oc.Menu - Ouverture du programme Mastermind OC
+2018-03-18 09:37:24.135 [main] INFO  com.mastermind.oc.Menu -             *Mode Utilisateur*
+2018-03-18 09:39:17.905 [main] INFO  com.mastermind.oc.Menu - Fermeture du programme Mastermind OC

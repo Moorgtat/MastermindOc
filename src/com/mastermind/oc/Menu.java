@@ -26,15 +26,15 @@ public class Menu {
 		
 		Scanner sc = new Scanner(System.in);		
 			
-			if (args.length > 0) {
-				if (args[0].equals("D")) {
-					marqueurMode = true;
-					logger.info("            *Mode Développeur*");
-				}
-			} else {
-				    marqueurMode = false;
-			    	logger.info("                *Mode Utilisateur*");
-			}	
+		if (args.length > 0) {
+			if (args[0].equals("D")) {
+				marqueurMode = true;
+				logger.info("            *Mode Développeur*");
+			}
+		} else {
+			marqueurMode = false;
+			logger.info("            *Mode Utilisateur*");
+		}
 
   try {
 	
@@ -169,9 +169,10 @@ public class Menu {
 			
 		System.out.println(" Merci d'avoir jouer. Au revoir.");
 		
-		}catch (InputMismatchException e) {
+		}catch (InputMismatchException e) {	
 			
 			logger.warn(" Saisi non valide ");
+			
 		}
   
   logger.info("Fermeture du programme Mastermind OC");
