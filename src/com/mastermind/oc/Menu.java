@@ -12,19 +12,17 @@ public class Menu {
 	private static final Logger logger = LogManager.getLogger(Menu.class);
 	protected static ChargerConfiguration cc = new ChargerConfiguration();
 	protected static Parametre parametre = new Parametre(cc.getPropNumTotal(),cc.getPropMaxChiff(),cc.getPropMaxEssai());
-
-	public static Boolean marqueurMode = false;
+	protected static Boolean marqueurMode = false;
+	protected static Scanner sc;
 	
 	  public static void main(String[] args) {
 		
 	    int SELECTION;
-		char Reponse;
-
+		char Reponse;		
+		
 		logger.info("Ouverture du programme Mastermind OC");
 		
 		System.out.println();
-		
-		Scanner sc = new Scanner(System.in);		
 			
 		if (args.length > 0) {
 			if (args[0].equals("D")) {
@@ -49,8 +47,9 @@ public class Menu {
 							+ "Selectionner le jeu en mode Mastermind defense (5)\n"
 							+ "Selectionner le jeu en mode Mastermind duel (6)\n"
 							+ "Quitter le programme (7)\n"
-							+ "Taper le chiffre entre parenthése pour faire un choix :");	
-						
+							+ "Taper le chiffre entre parenthése pour faire un choix :");
+			
+			sc = new Scanner(System.in);	
 			SELECTION = sc.nextInt();
 			
 			if (SELECTION == 1) {
@@ -140,7 +139,7 @@ public class Menu {
 						if (Reponse != 'O' && Reponse != 'N') {
 							System.out
 									.println("Votre réponse n'est pas valide.");
-						};
+							};
 
 					} while (Reponse != 'O' && Reponse != 'N');
 
@@ -164,9 +163,9 @@ public class Menu {
 
 				} while (Reponse != 'N');
 			}	
-			
+	
 		} while (SELECTION != 7);
-			
+		
 		System.out.println(" Merci d'avoir jouer. Au revoir.");
 		
 		}catch (InputMismatchException e) {	
@@ -174,7 +173,7 @@ public class Menu {
 			logger.warn(" Saisi non valide ");
 			
 		}
-  
+ 
   logger.info("Fermeture du programme Mastermind OC");
   
 	}

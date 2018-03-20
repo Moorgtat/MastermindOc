@@ -8,12 +8,13 @@ public class Recherche extends Menu{
 	private static final char EGAL = '=';
 	private static final char PLUS = '+';
 	private static final char MOIN = '-';
+
 	
 	
 	static void Attaque() {
 		
 		int totalCorrespondant = 0;
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 		
 		System.out.println("***********RECHERCHE MODE ATTAQUE***********\n"
 		+"Trouve la bonne combinaison de " + parametre.getNUM_TOTAL_CHIFF()
@@ -86,7 +87,7 @@ public class Recherche extends Menu{
 			count++;
 
 		} while (!victoire && (count < parametre.getMAX_ESSAIS()));
-
+     
 		if (victoire) {
 			System.out.println();
 			System.out.println("Bravo tu as gagné en " + count + " coups!");
@@ -108,7 +109,7 @@ public class Recherche extends Menu{
 	static void Defense() {
 		
 		int totalCorrespondant = 0;
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 		
 		System.out.println("***********RECHERCHE MODE DEFENSE***********\n"
 	        	+"Entre une combinaison de " + parametre.getNUM_TOTAL_CHIFF()
@@ -203,7 +204,7 @@ public class Recherche extends Menu{
 		int totalCorrespondantJoueur;
 		int totalCorrespondantOrdinateur;
 		
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 		
 		System.out.println("***********RECHERCHE MODE DUEL***********\n"
 		+"Trouve la bonne combinaison de " + parametre.getNUM_TOTAL_CHIFF()
@@ -336,7 +337,7 @@ public class Recherche extends Menu{
 			count++;
 
 		} while (!victoireJoueur && !victoireOrdinateur && (count < parametre.getMAX_ESSAIS()));
-
+        
 		if (victoireJoueur && victoireOrdinateur) {
 			System.out.println();
 			System.out.println("Le joueur et l'ordinateur ont trouvé la combinaison en " + count

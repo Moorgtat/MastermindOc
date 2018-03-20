@@ -11,10 +11,11 @@ public class Mastermind extends Menu{
 	private static int PRESENT_JOUEUR;
 	private static int BIEN_PLACE_ORDINATEUR;
 	private static int PRESENT_ORDINATEUR;
+
 	
 	static void Attaque() {
 		
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 
 		System.out.println("***********MASTERMIND MODE ATTAQUE***********\n"
 		+"Trouve la bonne combinaison de " + parametre.getMAX_CHIFF()+ 
@@ -122,7 +123,7 @@ public class Mastermind extends Menu{
 	
 	static void Defense() {
 		
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 
 		System.out.println("***********MASTERMIND MODE DEFENSE***********\n"
 		  +"Entre une combinaison de " + parametre.getNUM_TOTAL_CHIFF()
@@ -221,7 +222,7 @@ public class Mastermind extends Menu{
 	
 	static void Duel() {int count = 0;
 	
-	Scanner sc = new Scanner(System.in);
+	sc = new Scanner(System.in);
 	
 	System.out.println("***********MASTERMIND MODE DUEL***********\n"
 	+"Trouve la bonne combinaison de " +parametre.getNUM_TOTAL_CHIFF()+ " " 
