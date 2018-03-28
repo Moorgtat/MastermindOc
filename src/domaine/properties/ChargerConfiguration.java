@@ -11,6 +11,7 @@ import java.util.Properties;
 			InputStream input = null;
 			
 			public ChargerConfiguration() {	
+				
 				try {
 					input = new FileInputStream("bin/domaine/properties/config.properties");
 					prop.load(input);
